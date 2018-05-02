@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Card from "./components/Card";
 import characters from "./characters.json";
+import "./App.css";
 
 class App extends Component {
   // Setting this.state.friends to the friends json array
