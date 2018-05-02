@@ -11,7 +11,7 @@ class App extends Component {
     highScore: 0
   };
 
-  handleIncrement = () => {
+  imageClick = () => {
     this.setState({ score: this.state.score + 1 });
   };
 
@@ -26,6 +26,7 @@ class App extends Component {
     return (
       <div className="container">
         <h3>Clicky Game</h3>
+        <p>{this.state.score}</p>
         {this.state.characters.map(character => (
           <Card
             imageClick={this.imageClick}
