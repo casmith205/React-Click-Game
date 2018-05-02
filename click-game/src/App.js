@@ -26,13 +26,14 @@ class App extends Component {
       <div className="container">
         <h3>Clicky Game</h3>
         {this.state.characters.map(character => (
-          <div className="card">
+          <Card
             imageClick={this.imageClick}
             id={character.id}
             key={character.id}
             name={character.name}
             image={character.image}
-          </div>
+            >
+          </Card>
         ))}
       </div>
     );
