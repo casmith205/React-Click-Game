@@ -15,25 +15,28 @@ class App extends Component {
   // When an image is clicked...
   imageClick = (id) => {
     if (this.state.clicked.indexOf(id) == -1) {
-      // this.state.characters.forEach(image =>)
-      this.setState({ score: this.state.score + 1 })
 
-      // push clicked id to the clicked array
-      this.state.clicked.push(id)
+      // Push clicked ID to the clicked array
+      this.state.clicked.push(id);
+
+      // Update the score
+      this.setState({ score: this.state.score + 1 });
+      if (this.state.score == 11) {
+        alert("You win!!!!");
+        this.resetGame();
+      };
+
       // If the current score is higher than the high score, set the high score to the current score
       if (this.state.score > this.state.highScore) {
         this.setState({ highScore: this.state.score })
       }
-
-      
-    } else if (this.state.score >= 12){
-      alert("You win!!!!")
     } else {
-      alert("You clicked the same image twice! Oh no!")
+      alert("You clicked the same image twice! Oh no!");
+      this.resetGame();
     }
     // Shuffle the characters
     this.shuffle(this.state.characters);
-    this.resetGame();
+
   };
 
   // Shuffle the images
@@ -44,7 +47,7 @@ class App extends Component {
 
   // Game reset
   resetGame = () => {
-    this.setState({ 
+    this.setState({
       score: 0,
       clicked: []
     });
