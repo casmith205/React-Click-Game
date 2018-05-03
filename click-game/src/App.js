@@ -25,19 +25,31 @@ class App extends Component {
         this.setState({ highScore: this.state.score })
       }
 
+      
+    } else if (this.state.score >= 12){
+      alert("You win!!!!")
     } else {
-      this.setState({ score: 0})
       alert("You clicked the same image twice! Oh no!")
     }
     // Shuffle the characters
     this.shuffle(this.state.characters);
+    this.resetGame();
   };
 
+  // Shuffle the images
   shuffle = (array) => {
     array.sort(function () { return 0.5 - Math.random() })
     this.setState({ characters: array })
   };
 
+  // Game reset
+  resetGame = () => {
+    this.setState({ 
+      score: 0,
+      clicked: []
+    });
+
+  }
 
   // Map over this.state.characters and render a Card component for each character object
   render() {
