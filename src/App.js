@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from "./components/Card";
+import ImageBox from "./components/ImageBox";
 import characters from "./characters.json";
 import "./App.css";
 
@@ -64,14 +64,14 @@ class App extends Component {
         </div>
         <div className="row">
         {this.state.characters.map(character => (
-          <Card
+          <ImageBox
             imageClick={this.imageClick}
             id={character.id}
             key={character.id}
             name={character.name}
             image={character.image}
           >
-         </Card>
+         </ImageBox>
        
         ))}
         </div>
