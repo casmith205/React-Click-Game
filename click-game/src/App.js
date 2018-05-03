@@ -12,14 +12,15 @@ class App extends Component {
   };
 
   imageClick = () => {
-    this.setState({ score: this.state.score + 1 });
+    this.setState({ score: this.state.score + 1 })
+    this.shuffle(this.state.characters);
   };
 
-  // clickCharacter = id => {
-  //   const characters = this.state.characters.filter(character => character.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ characters });
-  // };
+  shuffle = (array) => {
+    array.sort(function() { return 0.5 - Math.random() })
+    this.setState({characters : array})
+  };
+
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
       <div className="container">
         <h3>Clicky Game</h3>
         <p>{this.state.score}</p>
+        <p>{this.state.highScore}</p>
         {this.state.characters.map(character => (
           <Card
             imageClick={this.imageClick}
@@ -34,6 +36,7 @@ class App extends Component {
             key={character.id}
             name={character.name}
             image={character.image}
+            // shuffle={this.shuffle}
             >
           </Card>
         ))}
