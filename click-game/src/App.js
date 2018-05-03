@@ -8,21 +8,38 @@ class App extends Component {
   state = {
     characters: characters,
     score: 0,
-    highScore: 0
+    highScore: 0,
+    clicked: []
   };
 
-  imageClick = () => {
-    this.setState({ score: this.state.score + 1 })
+  // When an image is clicked...
+  imageClick = (id) => {
+    if (this.state.clicked.indexOf(id) == -1) {
+      // this.state.characters.forEach(image =>)
+      this.setState({ score: this.state.score + 1 })
+
+      // push clicked id to the clicked array
+      this.state.clicked.push(id)
+      // If the current score is higher than the high score, set the high score to the current score
+      if (this.state.score > this.state.highScore) {
+        this.setState({ highScore: this.state.score })
+      }
+
+    } else {
+      this.setState({ score: 0})
+      alert("You clicked the same image twice! Oh no!")
+    }
+    // Shuffle the characters
     this.shuffle(this.state.characters);
   };
 
   shuffle = (array) => {
-    array.sort(function() { return 0.5 - Math.random() })
-    this.setState({characters : array})
+    array.sort(function () { return 0.5 - Math.random() })
+    this.setState({ characters: array })
   };
 
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  // Map over this.state.characters and render a Card component for each character object
   render() {
     return (
       <div className="container">
@@ -36,8 +53,7 @@ class App extends Component {
             key={character.id}
             name={character.name}
             image={character.image}
-            // shuffle={this.shuffle}
-            >
+          >
           </Card>
         ))}
       </div>
