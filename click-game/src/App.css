@@ -1,3 +1,15 @@
 img{
     width: 150px;
 }
+
+body{
+    background-image: url(./light-grey-terrazzo.png);
+}
+
+.Header{
+    background-image: url(http://img00.deviantart.net/6bad/i/2012/023/0/5/facebook_timeline_banner__dunder_mifflin_by_momoleprince-d4nfefp.jpg);
+    background-size: cover;
+    background-repeat: round;
+    color: grey;
+    padding: 30px;
+}

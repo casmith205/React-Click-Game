@@ -58,9 +58,11 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h3>Clicky Game</h3>
+      <div className="row Header">
+        <h3>The Office Clicky Game</h3>
         <p>{this.state.score}</p>
         <p>{this.state.highScore}</p>
+      </div>
         {this.state.characters.map(character => (
           <Card
             imageClick={this.imageClick}
