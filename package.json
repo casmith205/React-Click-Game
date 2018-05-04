@@ -1,7 +1,7 @@
 {
   "name": "click-game",
   "version": "0.1.0",
-  "homepage" : "http://myname.github.io/myapp",
+  "homepage" : "http://casmith205.github.io/React-Click-Game",
   "private": true,
   "dependencies": {
     "react": "^16.3.2",
