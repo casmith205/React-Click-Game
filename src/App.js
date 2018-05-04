@@ -72,7 +72,6 @@ class App extends Component {
             image={character.image}
           >
          </ImageBox>
-       
         ))}
         </div>
       </div>
